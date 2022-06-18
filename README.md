@@ -1,16 +1,4 @@
-<h1 align= center>GetAnyID-TeLeTiPs</h1>
-<h3 align = center>Fast and simple Telegram bot to provide user/group/channel ID. This bot can also work in group chats.</h3>
-<p align="center">
-<a href="https://python.org"><img src="http://forthebadge.com/images/badges/made-with-python.svg" alt="made-with-python"></a>
-<br>
-    <img src="" alt="Stars">
-    <img src="https://img.shields.io/github/forks/teletips/GetAnyID-TeLeTiPs?style=for-the-badge&color=green" alt="Forks">
-    <img src="https://img.shields.io/github/watchers/teletips/GetAnyID-TeLeTiPs?style=for-the-badge&color=yellow" alt="Watchers"> <br>
-    <img src="https://img.shields.io/github/license/teletips/GetAnyID-TeLeTiPs?style=for-the-badge&color=green" alt="https://img.shields.io/github/stars/EpicBotSl/StateBots?style=for-the-badge&color=yellowLicense">
-    <img src="https://img.shields.io/github/repo-size/teletips/GetAnyID-TeLeTiPs?style=for-the-badge&color=yellow" alt="Repository Size">
-    <img src="https://img.shields.io/github/contributors/teletips/GetAnyID-TeLeTiPs?style=for-the-badge&color=green" alt="Contributors">
-    <img src="https://img.shields.io/github/issues/teletips/GetAnyID-TeLeTiPs?style=for-the-badge&color=yellow" alt="Issues">
-</p>  
+
 
 ## Deployment Methods
 
