@@ -35,7 +35,8 @@ REPLY_BUTTONS = ReplyKeyboardMarkup(
             ["Tools & Helps"]
            
         ],
-        resize_keyboard=True
+        resize_keyboard=True,
+        one_time_keyboard=True
     )
 
 START_MG = """
