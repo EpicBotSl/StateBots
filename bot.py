@@ -35,7 +35,7 @@ REPLY_BUTTONS = (
             ["Tools & Helps"]
            
         ],
-        resize_keyboard=True
+        resize_keyboard==True
     )
 
 START_MG = """
