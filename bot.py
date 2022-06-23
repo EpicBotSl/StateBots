@@ -66,7 +66,7 @@ async def help(bot, message):
   
 @app.on_message(filters.command("listbots"))
 async def listbots(bot, message):
-  await message.reply_photo("https://telegra.ph/file/ba8e2c222f7a4f82dd592.jpg",caption=BOT_LIST_MG,reply_markup=InlineKeyboardMarkup(REPLY_BUTTONS))
+  await message.reply_photo("https://telegra.ph/file/ba8e2c222f7a4f82dd592.jpg",caption=BOT_LIST_MG,reply_markup=ReplyKeyboardMarkup(REPLY_BUTTONS))
 
 #Button Replys
 @app.on_message(filters.regex("🎧Voice Chat"))
