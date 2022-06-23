@@ -27,7 +27,7 @@ HELP_BTN = [
 ]
 
 BOT_LIST_MG = "Chek Bellow & see all team Epic Bots Catogories"
-REPLY_BUTTONS = (
+REPLY_BUTTONS = ReplyKeyboardMarkup(
       [
             ["🎧Voice Chat"],
             ["Social"],
@@ -35,7 +35,7 @@ REPLY_BUTTONS = (
             ["Tools & Helps"]
            
         ],
-        resize_keyboard==True
+        resize_keyboard=True
     )
 
 START_MG = """
@@ -57,20 +57,20 @@ START_BTN = [
         
 #Commands For Epic Bot
 @app.on_message(filters.command("start"))
-async def start(bot, message):
+async def start(app, message):
   await message.reply_photo("https://telegra.ph/file/ba8e2c222f7a4f82dd592.jpg",caption=START_MG,reply_markup=InlineKeyboardMarkup(START_BTN))
   
 @app.on_message(filters.command("help"))
-async def help(bot, message):
+async def help(app, message):
   await message.reply_photo("https://telegra.ph/file/ba8e2c222f7a4f82dd592.jpg",caption=HELP,reply_markup=InlineKeyboardMarkup(HELP_BTN))
   
 @app.on_message(filters.command("listbots"))
-async def listbots(bot, message):
-  await message.reply_photo("https://telegra.ph/file/ba8e2c222f7a4f82dd592.jpg",caption=BOT_LIST_MG,reply_markup=ReplyKeyboardMarkup(REPLY_BUTTONS))
+async def listbots(app, message):
+  await message.reply_photo("https://telegra.ph/file/ba8e2c222f7a4f82dd592.jpg", caption=BOT_LIST_MG, reply_markup=REPLY_BUTTONS)
 
 #Button Replys
 @app.on_message(filters.regex("🎧Voice Chat"))
-def reply_to_VoiceChat(bot, message):
+def reply_to_VoiceChat(app, message):
   bot.send_message(message.chat.id, "This Is Vc Bots")
   
   
