@@ -56,7 +56,7 @@ START_BTN = [
         ]
         
 #Commands For Epic Bot
-@app.on_message(filters.command("start") & filters.private)
+@app.on_message(filters.command("start"))
 async def start(bot, message):
   await message.reply_photo("https://telegra.ph/file/ba8e2c222f7a4f82dd592.jpg",caption=START_MG,reply_markup=InlineKeyboardMarkup(START_BTN))
   
