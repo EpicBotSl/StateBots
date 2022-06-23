@@ -69,6 +69,21 @@ LIST = [
        ]
    ]
  
+GROUPS = [
+         [
+             InlineKeyboardButton('🏅CLERA', callback_data="CLERA")  
+         ],
+         [
+             InlineKeyboardButton('🏅WHITE SNAKE', callback_data="WHITY")  
+         ],
+         [
+             InlineKeyboardButton('🔙', callback_data="BACK_GROUP")  
+           
+     ]
+  ]
+
+GROUP_MG = "🌱This Is Epic Group Help Section"
+
 #Commands For Epic Bot
 @app.on_message(filters.command("start"))
 async def start(app, message):
@@ -108,6 +123,17 @@ async def help_menu(_,query):
 async def back_menu(_,query):
   await query.answer()
   await query.message.edit(START_MG,reply_markup=InlineKeyboardMarkup(START_BTN))
+
+@app.on_callback_query(filters.regex("GROUP_DATA"))
+async def back_menu(_,query):
+  await query.answer()
+  await query.message.edit(GROUP_MG,reply_markup=InlineKeyboardMarkup(GROUPS))
+
+@app.on_callback_query(filters.regex("BACK_GROUP"))
+async def back_menu(_,query):
+  await query.answer()
+  await query.message.edit(BOT_LIST_MG,reply_markup=InlineKeyboardMarkup(LIST))
+  
   
   
 print("EPIC BOTS🇱🇰")
