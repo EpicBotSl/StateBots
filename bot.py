@@ -48,13 +48,23 @@ START_BTN = [
             ],
             [
                 InlineKeyboardButton(' SUPPORT', url='https://t.me/EpicChats'),
-                InlineKeyboardButton('EPIC DEVELOPERS</>', url='https://t.me/NightVission')
+                InlineKeyboardButton('EPIC DEVELOPERS🇱🇰', url='https://t.me/NightVission')
             ],
             [
                 InlineKeyboardButton('BOT STATE', callback_data="BOT_CALLBACK")
             ]
         ]
         
+LIST = [
+            [
+                InlineKeyboardButton('VOICE CHAT🎧', callback_data="VC_DATA"),
+                InlineKeyboardButton('GROUP MANAGER ⛱️', callback_data="GROUP_DATA)
+            ],
+            [
+                InlineKeyboardButton('TOOLS🛠️', callback_data="TOOLS_DATA")
+            ]
+        ]
+ 
 #Commands For Epic Bot
 @app.on_message(filters.command("start"))
 async def start(app, message):
@@ -88,16 +98,7 @@ async def back_menu(_,query):
 @app.on_callback_query(filters.regex("BOT_CALLBACK"))
 async def help_menu(_,query):
   await query.answer()
-  await query.message.edit(BOT_LIST_MG, reply_markup=ReplyKeyboardMarkup(
-      [
-            ["🎧Voice Chat"],
-            ["Social"],
-            ["Group Manager"],
-            ["Tools & Helps"]
-           
-        ],
-        resize_keyboard=True
-    ))
+  await query.message.edit(BOT_LIST_MG, reply_markup=InlineKeyboard button(LIST))
   
 print("EPIC BOTS🇱🇰")
 app.run()
