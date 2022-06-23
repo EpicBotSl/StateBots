@@ -35,9 +35,9 @@ REPLY_BUTTONS = (
             ["Tools & Helps"]
            
         ],
-        resize_keyboard=True,
-        one_time_keyboard=True
+        resize_keyboard=True
     )
+
 START_MG = """
 **🔥 Hello There,  Im Epic Developers Bots State Bot
 ➤ Click /help Or The Button Below To Know How To Use Me
