@@ -5,6 +5,7 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, 
 from pyrogram import Client
 from pyrogram.types import InlineQueryResultArticle, InputTextMessageContent
 from pyrogram.types import ReplyKeyboardMarkup
+from state.py import herokudash.py
 import os
 
 app=Client(
