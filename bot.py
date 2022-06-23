@@ -62,11 +62,11 @@ async def start(bot, message):
   
 @app.on_message(filters.command("help"))
 async def help(bot, message):
-  await message.reply_sticker("CAACAgUAAxkBAAEFFdRisHcr0C1_svwE_gAB2PhkruEaZcgAAoUGAAI2X4lVZVPINGURBWcoBA",caption=HELP,reply_markup=InlineKeyboardMarkup(HELP_BTN))
+  await message.reply_photo("https://telegra.ph/file/ba8e2c222f7a4f82dd592.jpg",caption=HELP,reply_markup=InlineKeyboardMarkup(HELP_BTN))
   
 @app.on_message(filters.command("listbots"))
 async def listbots(bot, message):
-  await message.reply_sticker("CAACAgUAAxkBAAEFFdRisHcr0C1_svwE_gAB2PhkruEaZcgAAoUGAAI2X4lVZVPINGURBWcoBA",caption=BOT_LIST_MG,reply_markup=InlineKeyboardMarkup(REPLY_BUTTONS))
+  await message.reply_photo("https://telegra.ph/file/ba8e2c222f7a4f82dd592.jpg",caption=BOT_LIST_MG,reply_markup=InlineKeyboardMarkup(REPLY_BUTTONS))
 
 #Button Replys
 @app.on_message(filters.regex("🎧Voice Chat"))
