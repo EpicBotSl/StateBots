@@ -88,7 +88,16 @@ async def back_menu(_,query):
 @app.on_callback_query(filters.regex("BOT_CALLBACK"))
 async def help_menu(_,query):
   await query.answer()
-  await query.message.edit(BOT_LIST_MG, reply_markup=REPLY_BUTTONS)
+  await query.message.edit(BOT_LIST_MG, reply_markup=ReplyKeyboardMarkup(
+      [
+            ["🎧Voice Chat"],
+            ["Social"],
+            ["Group Manager"],
+            ["Tools & Helps"]
+           
+        ],
+        resize_keyboard=True
+    ))
   
 print("EPIC BOTS🇱🇰")
 app.run()
