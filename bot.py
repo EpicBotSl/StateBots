@@ -27,7 +27,7 @@ HELP_BTN = [
 ]
 
 BOT_LIST_MG = "Chek Bellow & see all team Epic Bots Catogories"
-REPLY_BUTTONS = ReplyKeyboardMarkup(
+REPLY_BUTTONS = (
       [
             ["🎧Voice Chat"],
             ["Social"],
