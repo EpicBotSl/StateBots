@@ -58,7 +58,7 @@ START_BTN = [
 LIST = [
             [
                 InlineKeyboardButton('VOICE CHAT🎧', callback_data="VC_DATA"),
-                InlineKeyboardButton('GROUP MANAGER ⛱️', callback_data="GROUP_DATA)
+                InlineKeyboardButton('GROUP MANAGER ⛱️', callback_data="GROUP_DATA")
             ],
             [
                 InlineKeyboardButton('TOOLS🛠️', callback_data="TOOLS_DATA")
