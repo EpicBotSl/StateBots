@@ -132,7 +132,7 @@ async def back_menu(_,query):
 @app.on_callback_query(filters.regex("BACK_GROUP"))
 async def back_menu(_,query):
   await query.answer()
-  await query.message.edit(BOT_LIST_MG,reply_markup=InlineKeyboardMarkup(LIST))
+  await query.message.edit(BOT_LIST_MG, reply_photo='https://telegra.ph/file/3d1d707fa7df28c21348b.jpg', reply_markup=InlineKeyboardMarkup(LIST))
   
   
   
