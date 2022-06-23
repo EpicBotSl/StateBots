@@ -132,9 +132,14 @@ async def back_menu(_,query):
 @app.on_callback_query(filters.regex("BACK_GROUP"))
 async def back_menu(_,query):
   await query.answer()
-  await query.photo.edit(https://telegra.ph/file/3d1d707fa7df28c21348b.jpg, BOTLIST_MG, reply_markup=InlineKeyboardMarkup(LIST))
+  await query.message.edit(BOT_LIST_MG,reply_markup=InlineKeyboardMarkup(LIST))
   
   
   
-print("EPIC BOTS🇱🇰")
+print("EPIC BOTS🇱🇰"),
+print("🚀loading....."),
+print("⚡Get variables.."),
+print("🛠️Chekin latest Version...."),
+print("🔥Your Bot Successfuly Deployed!.."),
+print("🏅chek For Updates @EpicBotsSl")
 app.run()
