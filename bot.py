@@ -41,7 +41,7 @@ REPLY_BUTTONS = ReplyKeyboardMarkup(
 
 START_MG = """
 **🔥 Hello There,  Im Epic Developers Bots State Bot
-➤ Click /help Or The Button Below To Know How To Use Me
+➤ Click /help Or The Button Below To Know How To Use Me**
 """
 START_BTN = [
             [
