@@ -137,10 +137,5 @@ async def back_menu(_,query):
   
   
   
-print("EPIC BOTS🇱🇰"),
-print("🚀loading....."),
-print("⚡Get variables.."),
-print("🛠️Chekin latest Version...."),
-print("🔥Your Bot Successfuly Deployed!.."),
-print("🏅chek For Updates @EpicBotsSl")
+print("print_mg")
 app.run()
