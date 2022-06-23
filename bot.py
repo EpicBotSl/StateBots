@@ -128,7 +128,7 @@ async def back_menu(_,query):
 async def back_menu(_,query):
   await query.answer()
   await query.message.edit(GROUP_MG,reply_markup=InlineKeyboardMarkup(GROUPS))
-  await app.send_message(CAACAgUAAxkBAAEFFdJisHcXrQZdD6l32JJPM0xg9RwWrQACUgUAAhzhiFX8K8u4AiS1cygE)
+  await app.send_message("CAACAgUAAxkBAAEFFdJisHcXrQZdD6l32JJPM0xg9RwWrQACUgUAAhzhiFX8K8u4AiS1cygE")
 
 @app.on_callback_query(filters.regex("BACK_GROUP"))
 async def back_menu(_,query):
