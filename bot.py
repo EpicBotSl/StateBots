@@ -1,80 +1,32 @@
-from pyrogram import Client, filters
-from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
-from pyrogram.types import Message
-from pyrogram.types import CallbackQuery
-from pyrogram.types import ChatPermissions
+import pyrogram
+from pyrogram import filters, idle
+from pyrogram.errors import FloodWait
+from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, CallbackQuery
+from pyrogram import Client
+from pyrogram.types import InlineQueryResultArticle, InputTextMessageContent
 from pyrogram.types import ReplyKeyboardMarkup
 import os
 
-bot=Client(
-    "Night Vission",
+app=Client(
+    "EpicBots",
     api_id = int(os.environ["API_ID"]),
     api_hash = os.environ["API_HASH"],
     bot_token = os.environ["BOT_TOKEN"]
 )
 
-#---------Start Buttons & Message------------#
-START_MG = "Im Night Vission Official State Bot! @NightVission"
-START_BTN = [
-            [
-                InlineKeyboardButton('HELP', callback_data="HELP_CALLBACK")
-            ],
-            [
-                InlineKeyboardButton(' SUPPORT', url='https://t.me/NightVissionSupport'),
-                InlineKeyboardButton('📣 CHANNEL', url='https://t.me/NightVission'),
-                InlineKeyboardButton(' CREATOR', url='https://t.me/NA_VA_N_JA_NA1')
-            ],
-            [
-                InlineKeyboardButton('NIGHT VISSION BOT LIST', callback_data="BOT_CALLBACK")
-            ]
-        ]
-
-#--------------------Start Bot---------------------------#
-@bot.on_message(filters.command('start') & filters.private)
-async def start(client, message):
-    text = START_MG
-    reply_markup = InlineKeyboardMarkup(START_BTN)
-    await message.reply(
-        text=text,
-        reply_markup=reply_markup,
-        disable_web_page_preview=True
-    )
-#------------HELP CALLBACK QUERY-----------#
-HELP_MESSAGE = """What Can I do ?
-➠ ban & unban user
-➠ mute & unmute user
-➠ kick a member
-Available Commands
-/start - Checking Bot Online
-/help - all helps
-/ban - ban a user
-/unban - unban a user
-/mute - mute a user
-/unmute - unmute a user
-/kick - kick users
-/listbots - all available ™Night Vission Bots"""
-HELP_BUTTONS = [
+#Buttons & Captions
+#-------------BOT LIST Buttons & Mg--------------#
+HELP = """Welcome to Help Menu!
+Im Epic State Bot ✓ 
+Send /listbots & Chek all avibles Epic Bots 
+I Will Be Update Evry Morning
+"""
+#-------------------------------------------------------------
+HELP_BTN = [
 [InlineKeyboardButton('BACK', callback_data="BACK_MENU")]
 ]
 
-@bot.on_callback_query(filters.regex("HELP_CALLBACK"))
-async def startmenu(_, query: CallbackQuery):
-    await query.edit_inline_reply_markup(HELP_BUTTONS),
-    await query.edit_message_text(HELP_MESSAGE)
-#----------------menu backcallbac----------------#
-@bot.on_callback_query(filters.regex("BACK_MENU"))
-async def backmenu(_, query: CallbackQuery):
-    await query.edit_message_text(START_MG, reply_markup=START_BTN,
-     disable_web_page_preview=True
-  )
-#-------------Bot List Callback---------------------#
-@bot.on_callback_query(filters.regex("BOT_CALLBACK"))
-async def botcallback(_, query: CallbackQuery):
-    await query.edit_message_text(BOT_LIST_MG,reply_markup=REPLY_BUTTONS,
-     disable_web_page_preview=True
-    )
-#-------------BOT LIST CALLBACK--------------#
-BOT_LIST_MG = "Chek Bellow All Night Vission Bots Catogories"
+BOT_LIST_MG = "Chek Bellow & see all team Epic Bots Catogories"
 REPLY_BUTTONS = ReplyKeyboardMarkup(
       [
             ["🎧Voice Chat"],
@@ -86,57 +38,57 @@ REPLY_BUTTONS = ReplyKeyboardMarkup(
         resize_keyboard=True,
         one_time_keyboard=True
     )
-    
-#Buttons Replys
-SFT = "This Is Vc bots"
+START_MG = """
+**🔥 Hello There,  Im Epic Developers Bots State Bot
+➤ Click /help Or The Button Below To Know How To Use Me
+"""
+START_BTN = [
+            [
+                InlineKeyboardButton('HELP', callback_data="HELP_CALLBACK")
+            ],
+            [
+                InlineKeyboardButton(' SUPPORT', url='https://t.me/EpicChats'),
+                InlineKeyboardButton('EPIC DEVELOPERS</>', url='https://t.me/NightVission')
+            ],
+            [
+                InlineKeyboardButton('BOT STATE', callback_data="BOT_CALLBACK")
+            ]
+        ]
+        
+#Commands For Epic Bot
+@app.on_message(filters.command("start") & filters.private)
+async def start(bot, message):
+  await message.reply_photo("https://telegra.ph/file/ba8e2c222f7a4f82dd592.jpg",caption=START_MG,reply_markup=InlineKeyboardMarkup(START_BTN))
+  
+@app.on_message(filters.command("help"))
+async def help(bot, message):
+  await message.reply_sticker("CAACAgUAAxkBAAEFFdRisHcr0C1_svwE_gAB2PhkruEaZcgAAoUGAAI2X4lVZVPINGURBWcoBA",caption=HELP,reply_markup=InlineKeyboardMarkup(HELP_BTN))
+  
+@app.on_message(filters.command("listbots"))
+async def listbots(bot, message):
+  await message.reply_sticker("CAACAgUAAxkBAAEFFdRisHcr0C1_svwE_gAB2PhkruEaZcgAAoUGAAI2X4lVZVPINGURBWcoBA",caption=BOT_LIST_MG,reply_markup=InlineKeyboardMarkup(REPLY_BUTTONS))
 
-@bot.on_message(filters.command('listbots'))
-def listbots(bot, message):
-	text = BOT_LIST_MG
-	reply_markup = REPLY_BUTTONS
-	message.reply(
-	text=text,
-	reply_markup=reply_markup
-)
-@bot.on_message(filters.regex("🎧Voice Chat"))
+#Button Replys
+@app.on_message(filters.regex("🎧Voice Chat"))
 def reply_to_VoiceChat(bot, message):
-	text = SFT,
-	message.reply(
-	text=text
-) 
-	
-#kick a user ©Night Vission ™ 2022 All rights Resived ✓
-@bot.on_message(filters.command('kick') & filters.group)
-def kick(bot, message):
-            bot.kick_chat_member(message.chat.id, message.reply_to_message.from_user.id)
-            bot.send_message(message.chat.id, f"{message.reply_to_message.from_user.mention} Go out Side"
-)
-#ban user ©Night Vission ™ 2022 All rights Resived ✓
-@bot.on_message(filters.command('ban') & filters.group)
-def ban(bot, message):
-            bot.ban_chat_member(message.chat.id, message.reply_to_message.from_user.id)
-            bot.send_message(message.chat.id, f"{message.reply_to_message.from_user.mention} Fu*k off! \-_-/ You banned."
-)
-#unban user ! ©Night Vission™ 2022 All Rights Resived✓
-@bot.on_message(filters.command('unban') & filters.group)
-def unban(bot, message):
-            bot.unban_chat_member(message.chat.id, message.reply_to_message.from_user.id)
-            bot.send_message(message.chat.id, f"{message.reply_to_message.from_user.mention} Unbanned! Come here!"
-)
-
-#mute user ! ©Night Vission™ 2022 All Rights Resived✓
-@bot.on_message(filters.command('mute') & filters.group)
-def mute(bot, message):
-            bot.restrict_chat_member(message.chat.id, message.reply_to_message.from_user.id)
-            bot.send_message(message.chat.id, f"{message.reply_to_message.from_user.mention} Muted !"
-)
-#unmute user! ©Night Vission™ 2022 All Rights Resived✓
-
-@bot.on_message(filters.command('unmute') & filters.group)
-def unmute(bot, message):
-            bot.unrestrict_chat_member(message.chat.id, message.reply_to_message.from_user.id)
-            bot.send_message(message.chat.id, f"{message.reply_to_message.from_user.mention} Unmuted You Can Send massage Now!"
-)
-
-print("</ᴇᴘɪᴄ ʙᴏᴛs <s/ʟ>🇱🇰")
-bot.run()
+  bot.send_message(message.chat.id, "This Is Vc Bots")
+  
+  
+ #Callbacks
+@app.on_callback_query(filters.regex("HELP_CALLBACK"))
+async def start_menu(_,query):
+  await query.answer()
+  await query.message.edit(HELP,reply_markup=InlineKeyboardMarkup(HELP_BTN))
+  
+@app.on_callback_query(filters.regex("BACK_MENU"))
+async def back_menu(_,query):
+  await query.answer()
+  await query.message.edit(START_MG,reply_markup=InlineKeyboardMarkup(START_BTN))
+  
+@app.on_callback_query(filters.regex("BOT_CALLBACK"))
+async def help_menu(_,query):
+  await query.answer()
+  await query.message.edit(BOT_LIST_MG,reply_markup=ReplyKeyboardMarkup(REPLY_BUTTONS))
+  
+print("</>EPIC BOTS</>")
+app.run()
